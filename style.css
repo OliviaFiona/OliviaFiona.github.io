@@ -330,6 +330,8 @@ section { padding: 6rem 2rem; }
   gap: 1.75rem;
 }
 .edu-card {
+  position: relative;
+  overflow: hidden;
   background: var(--cream-card);
   border: 1px solid var(--cream-dark);
   border-left: 4px solid var(--green-md);
@@ -341,6 +343,42 @@ section { padding: 6rem 2rem; }
 .edu-card:hover {
   box-shadow: var(--shadow-md);
   transform: translateY(-3px);
+}
+/* 教育卡片：正文叠在装饰图之上 */
+.edu-card > *:not(.edu-card-hover-art) {
+  position: relative;
+  z-index: 1;
+}
+/* 教育卡片 hover：右下角装饰图（高度约卡片 1/4，置于文字下层） */
+.edu-card-hover-art {
+  position: absolute;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 0;
+  height: 25%;
+  width: auto;
+  max-width: 48%;
+  object-fit: contain;
+  object-position: right bottom;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+.edu-card:hover .edu-card-hover-art {
+  opacity: 1;
+  transform: scale(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .edu-card-hover-art {
+    transition: opacity 0.2s ease;
+    transform: none;
+  }
+  .edu-card:hover .edu-card-hover-art {
+    transform: none;
+  }
 }
 .edu-card-header {
   display: flex; justify-content: space-between; align-items: center;
