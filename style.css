@@ -800,9 +800,22 @@ section { padding: 8rem 3rem; }
   margin-bottom: 0.75rem;
 }
 .proj-period { font-size: 0.75rem; color: var(--text-muted); }
+/* 严格与实习经历 .icard-role-tag 配色与规格一致 */
 .proj-role-tag {
-  font-size: 0.72rem; font-weight: 600;
-  color: var(--green-dk); letter-spacing: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0.25rem 0.75rem;
+  background: rgba(200,230,201,0.35);
+  border: 1px solid var(--green-md);
+  border-radius: 4px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--green-dk);
+  letter-spacing: 0.06em;
+  line-height: 1.2;
 }
 .proj-name {
   font-family: var(--font-serif);
@@ -838,19 +851,21 @@ section { padding: 8rem 3rem; }
 /* ── 荣誉奖项 ── */
 .awards-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1.1rem 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 .award-card {
   position: relative;
   background: #fffef7;
   border: 1px solid #f3e8cb;
-  border-left: 6px solid var(--green-dk);
-  border-radius: 22px;
-  padding: 1.35rem 1.45rem 1.25rem;
-  min-height: 124px;
-  display: flex; flex-direction: column; justify-content: space-between;
-  gap: 0.8rem;
+  border-left: 5px solid var(--green-dk);
+  border-radius: 18px;
+  padding: 1.2rem 1.4rem;
+  min-height: 120px;
+  display: flex; flex-direction: column; justify-content: center;
+  gap: 0.6rem;
   box-shadow: 0 2px 16px rgba(90,155,106,0.05);
   transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
 }
@@ -863,21 +878,35 @@ section { padding: 8rem 3rem; }
   border-color: #ebdfbd;
 }
 .award-card--highlight {
+  grid-column: span 2;
   border-left: 6px solid var(--green-dk);
-  background: #fffef7;
+  background: linear-gradient(135deg, #fffef7 0%, #f9fdf7 100%);
+  min-height: 160px;
+  padding: 1.8rem 2rem;
 }
 .award-title {
-  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+  font-size: clamp(0.82rem, 0.95vw, 0.92rem);
   font-weight: 400;
   color: #6B6B6B;
-  line-height: 1.42;
+  line-height: 1.4;
+}
+.award-card--highlight .award-title {
+  font-size: clamp(1rem, 1.1vw, 1.1rem);
+  font-weight: 500;
+  color: var(--text-main);
 }
 .award-year {
   font-family: var(--font-serif);
-  font-size: clamp(1.55rem, 2vw, 1.95rem);
+  font-size: clamp(1.2rem, 1.55vw, 1.45rem);
   line-height: 1;
   color: #6B6B6B;
   letter-spacing: 0.02em;
+}
+.award-card--highlight .award-year {
+  font-size: clamp(1.6rem, 1.9vw, 1.8rem);
+  color: var(--green-dk);
+  font-weight: 600;
+}
   font-weight: 400;
   margin-top: auto;
 }
@@ -1149,7 +1178,13 @@ section { padding: 8rem 3rem; }
   .project-cards { grid-template-columns: 1fr; }
   .intern-timeline { gap: 0; }
   .node-period { display: inline; }
-  .awards-grid { grid-template-columns: repeat(2, 1fr); }
+  .awards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.45rem;
+  }
+  .award-card--highlight {
+    grid-column: 1;
+  }
   .section-header--resume {
     align-items: flex-start;
     flex-direction: column;
@@ -1164,6 +1199,12 @@ section { padding: 8rem 3rem; }
 @media (max-width: 480px) {
   .aigc-gallery { grid-template-columns: 1fr; }
   .aigc-item--tall, .aigc-item--wide { grid-column: 1; grid-row: auto; }
-  .awards-grid { grid-template-columns: 1fr; }
+  .awards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.35rem;
+  }
+  .award-card--highlight {
+    grid-column: 1;
+  }
   .icard-metrics { gap: 0; }
 }
