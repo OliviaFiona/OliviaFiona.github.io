@@ -303,13 +303,22 @@ section { padding: 8rem 3rem; }
   scroll-margin-top: 45px;
 }
 .resume > * { max-width: 1120px; margin-left: auto; margin-right: auto; }
+.section-header--resume {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
 
 /* Tabs */
 .resume-tabs {
   display: flex; gap: 0;
   border-bottom: 1px solid var(--cream-dark);
-  margin-bottom: 3rem;
-  max-width: 1120px; margin-left: auto; margin-right: auto;
+  margin-bottom: 0;
+  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
 }
 .tab-btn {
   padding: 0.85rem 1.75rem;
@@ -1141,7 +1150,12 @@ section { padding: 8rem 3rem; }
   .intern-timeline { gap: 0; }
   .node-period { display: inline; }
   .awards-grid { grid-template-columns: repeat(2, 1fr); }
-  .resume-tabs { overflow-x: auto; }
+  .section-header--resume {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.1rem;
+  }
+  .resume-tabs { overflow-x: auto; width: 100%; }
   .tab-btn { white-space: nowrap; }
   .work-block { padding: 1.5rem; }
   .work-block-header { flex-direction: column; }
