@@ -96,8 +96,12 @@ tabBtns.forEach(btn => {
     current = index;
 
     // slide: move track so active card is centered
-    const cardWidth = cards[0].offsetWidth;
+    // Calculate based on track's visible width (minus padding)
+    const trackRect = track.getBoundingClientRect();
+    const trackWidth = trackRect.width;
     const gap = 20; // matches CSS gap
+    // Account for horizontal padding (0.75rem * 2 = 1.5rem ≈ 24px)
+    const cardWidth = trackWidth - 24;
     const offset = index * (cardWidth + gap);
     track.style.transform = `translateX(-${offset}px)`;
     track.style.transition = 'transform 0.45s cubic-bezier(0.4,0,0.2,1)';
@@ -122,7 +126,9 @@ tabBtns.forEach(btn => {
   track.addEventListener('pointermove', e => {
     if (!isDragging) return;
     const dx = e.clientX - startX;
-    const cardWidth = cards[0].offsetWidth;
+    const trackRect = track.getBoundingClientRect();
+    const trackWidth = trackRect.width;
+    const cardWidth = trackWidth - 24; // subtract padding
     const gap = 20;
     const base = current * (cardWidth + gap);
     track.style.transform = `translateX(${-base + dx}px)`;

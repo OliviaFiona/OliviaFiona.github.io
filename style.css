@@ -516,6 +516,8 @@ section { padding: 8rem 3rem; }
 /* 卡片轨道外层 */
 .intern-track-outer {
   position: relative; display: flex; align-items: center; gap: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 /* 箭头 */
@@ -551,17 +553,19 @@ section { padding: 8rem 3rem; }
 
 /* 卡片容器 */
 .intern-track {
-  flex: 1; overflow: hidden;
-  display: flex; align-items: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
   padding: 1.5rem 0.75rem;
   gap: 1.25rem;
   transition: transform var(--transition);
+  min-width: 0;
 }
 
 /* 实习卡片 */
 .intern-card {
   position: relative;
-  flex: 0 0 calc(100% - 0px);
+  flex: 0 0 calc(100% - 1.5rem);
   min-width: 0;
   background: var(--cream-card);
   border: 1px solid var(--cream-dark);
