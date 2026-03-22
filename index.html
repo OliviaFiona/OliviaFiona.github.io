@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fiona · Product Manager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════ NAV ═══════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="#hero">Fiona</a>
+      <ul class="nav-links">
+        <li><a href="#resume">About</a></li>
+        <li><a href="#works">Works</a></li>
+        <li><a href="#aigc">AIGC</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══════════════════════════════════════ HERO ══════════════════════════════════════ -->
+  <section class="hero" id="hero">
+
+    <!-- 花朵占位层（替换为真实素材后修改此处） -->
+    <div class="flower-layer flower-tl" aria-hidden="true">
+      <div class="flower-placeholder flower-placeholder--tl"></div>
+    </div>
+    <div class="flower-layer flower-br" aria-hidden="true">
+      <div class="flower-placeholder flower-placeholder--br"></div>
+    </div>
+
+    <div class="hero-content">
+      <h1 class="hero-name">Fiona</h1>
+      <p class="hero-tagline" id="typewriter"></p>
+
+      <div class="hero-actions">
+        <div class="hero-tags">
+          <span class="tag">00后</span>
+          <span class="tag tag--green">AI Native</span>
+          <span class="tag">Product Manager</span>
+          <span class="tag tag--green">AI Coding</span>
+          <span class="tag">中传 × 央财</span>
+        </div>
+      </div>
+    </div>
+
+    <a class="hero-cta" href="#resume">
+      查看详情
+      <span class="hero-cta-arrow">↓</span>
+    </a>
+  </section>
+
+  <!-- ══════════════════════════════════════ RESUME ════════════════════════════════════ -->
+  <section class="resume" id="resume">
+    <div class="section-header">
+      <span class="section-label">Profile</span>
+      <h2 class="section-title">个人简历</h2>
+    </div>
+
+    <!-- Tab 导航 -->
+    <div class="resume-tabs" role="tablist">
+      <button class="tab-btn active" data-tab="education" role="tab">教育背景</button>
+      <button class="tab-btn" data-tab="internship" role="tab">实习经历</button>
+      <button class="tab-btn" data-tab="projects" role="tab">项目经历</button>
+      <button class="tab-btn" data-tab="awards" role="tab">荣誉奖项</button>
+    </div>
+
+    <!-- ── Tab 1 教育背景 ── -->
+    <div class="tab-panel active" id="tab-education">
+      <div class="edu-grid">
+
+        <div class="edu-card">
+          <div class="edu-card-header">
+            <span class="edu-period">2024.09 – 2027.06</span>
+            <span class="edu-degree">硕士</span>
+          </div>
+          <h3 class="edu-school">中国传媒大学</h3>
+          <p class="edu-major">传播学 · 国际传播方向</p>
+          <div class="edu-stats">
+            <div class="edu-stat">
+              <span class="edu-stat-num">91.82</span>
+              <span class="edu-stat-label">加权均分</span>
+            </div>
+            <div class="edu-stat edu-stat--vcenter">
+              <span class="edu-stat-num edu-stat-num--compact">保送研究生</span>
+            </div>
+          </div>
+          <ul class="edu-courses">
+            <li>国际传播理论与历史 <em>98</em></li>
+            <li>当代中国国际传播 <em>94</em></li>
+            <li>传播研究方法 <em>92</em></li>
+            <li>智能媒体研究专题 <em>91</em></li>
+          </ul>
+          <div class="edu-publications">
+            <p class="pub-item">期刊论文：《社会共同意识塑造：数智时代新加坡媒介融合的路径选择》</p>
+            <p class="pub-item">A类会议论文：The Overlooked Environmental Perspective in Disaster News <span class="pub-venue">· 美国丹佛</span></p>
+          </div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-card-header">
+            <span class="edu-period">2020.09 – 2024.06</span>
+            <span class="edu-degree">本科</span>
+          </div>
+          <h3 class="edu-school">中央财经大学</h3>
+          <p class="edu-major">新闻传播学</p>
+          <div class="edu-stats">
+            <div class="edu-stat">
+              <span class="edu-stat-num">90.53</span>
+              <span class="edu-stat-label">加权均分</span>
+            </div>
+            <div class="edu-stat">
+              <span class="edu-stat-num">6%</span>
+              <span class="edu-stat-label">专业排名</span>
+            </div>
+          </div>
+          <ul class="edu-courses">
+            <li>管理学 <em>97</em></li>
+            <li>消费者行为学 <em>96</em></li>
+            <li>互联网经济 <em>91</em></li>
+            <li>Web 前端开发 <em>97</em></li>
+            <li>MySQL 数据库 <em>88</em></li>
+          </ul>
+          <div class="edu-publications">
+            <p class="pub-item">最佳学生会议论文：Objective Presentation? US & UK Media Agenda for Chinese Technology <span class="pub-venue">· 中国上海</span></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Tab 2 实习经历 ── -->
+    <div class="tab-panel" id="tab-internship">
+      <div class="internship-track-wrap">
+        <!-- 时间轴节点 -->
+        <div class="intern-timeline">
+          <div class="intern-timeline-line"></div>
+          <button class="intern-node active" data-index="0">
+            <span class="node-dot"></span>
+            <span class="node-label">腾讯 PCG</span>
+            <span class="node-period">2025.09–2026.03</span>
+          </button>
+          <button class="intern-node" data-index="1">
+            <span class="node-dot"></span>
+            <span class="node-label">飞书 Lark</span>
+            <span class="node-period">2025.02–2025.06</span>
+          </button>
+          <button class="intern-node" data-index="2">
+            <span class="node-dot"></span>
+            <span class="node-label">字节跳动</span>
+            <span class="node-period">2024.03–2024.08</span>
+          </button>
+          <button class="intern-node" data-index="3">
+            <span class="node-dot"></span>
+            <span class="node-label">雀巢中国</span>
+            <span class="node-period">2025.06–2025.09</span>
+          </button>
+        </div>
+
+        <!-- 卡片轨道 -->
+        <div class="intern-track-outer">
+          <button class="track-arrow track-arrow--prev" aria-label="上一张">&#8249;</button>
+          <div class="intern-track" id="internTrack">
+
+            <div class="intern-card active" data-index="0">
+              <div class="icard-period">2025.09 – 2026.03</div>
+              <div class="icard-company">腾讯</div>
+              <div class="icard-dept">PCG 平台与内容事业群</div>
+              <div class="icard-role-tag">AI 产品策划</div>
+              <p class="icard-bg">大数据平台部，聚焦企业数智与效率工具赛道，核心产品包括「腾讯灯塔」及知识管理工具「狗子AI」。</p>
+              <div class="icard-divider"></div>
+              <ul class="icard-highlights">
+                <li><strong>YesPM</strong> Agent驱动效率平台 · 2周完成MVP从0到1敏捷上线</li>
+                <li><strong>腾讯灯塔</strong>权限系统 · Q4主导推动34个功能上线</li>
+              </ul>
+              <div class="icard-metrics">
+                <div class="icard-metric">
+                  <span class="metric-num">460<small>+</small></span>
+                  <span class="metric-label">首日内网用户</span>
+                </div>
+                <div class="icard-metric">
+                  <span class="metric-num">100<small>%</small></span>
+                  <span class="metric-label">KA当月交付率</span>
+                </div>
+                <div class="icard-metric">
+                  <span class="metric-num">34</span>
+                  <span class="metric-label">功能上线数</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="intern-card" data-index="1">
+              <div class="icard-period">2025.02 – 2025.06</div>
+              <div class="icard-company">飞书</div>
+              <div class="icard-dept">Lark Admin and Security Product</div>
+              <div class="icard-role-tag">商业化策略运营</div>
+              <p class="icard-bg">聚焦飞书安全与合规产品线的市场增长，驱动中大型企业客户对数据安全、AI合规及出海风控等高价值场景的认知转化与商机落地。</p>
+              <div class="icard-divider"></div>
+              <ul class="icard-highlights">
+                <li><strong>内容营销与商机获取</strong> · 创作安全产品营销专栏，协作策划《企业出海合规指导书》</li>
+                <li><strong>私域运营</strong> · 系统运营1700+人规模产品社群，优化售前服务质量</li>
+              </ul>
+              <div class="icard-metrics">
+                <div class="icard-metric">
+                  <span class="metric-num">55</span>
+                  <span class="metric-label">单篇有效商家线索</span>
+                </div>
+                <div class="icard-metric">
+                  <span class="metric-num">10<small>%+</small></span>
+                  <span class="metric-label">社群人数增长</span>
+                </div>
+                <div class="icard-metric">
+                  <span class="metric-num">96</span>
+                  <span class="metric-label">上线1周客户订阅</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="intern-card" data-index="2">
+              <div class="icard-period">2024.03 – 2024.08</div>
+              <div class="icard-company">字节跳动</div>
+              <div class="icard-dept">巨量引擎 · 广告营销产品</div>
+              <div class="icard-role-tag">广告产品增长运营</div>
+              <p class="icard-bg">团队聚焦商业化营销产品Dou+、巨量AD、巨量本地推，通过策略运营与产品协同，驱动用户高价值行为及广告消耗提升。</p>
+              <div class="icard-divider"></div>
+              <ul class="icard-highlights">
+                <li><strong>增长策略与商业变现</strong> · AB Test优化任务系统与分层激励策略</li>
+                <li><strong>客户洞察与功能落地</strong> · 实地调研京营15家广告主，定位增长问题</li>
+              </ul>
+              <div class="icard-metrics">
+                <div class="icard-metric">
+                  <span class="metric-num">13.7<small>%</small></span>
+                  <span class="metric-label">客户消耗迁移率</span>
+                </div>
+                <div class="icard-metric">
+                  <span class="metric-num">250<small>万</small></span>
+                  <span class="metric-label">广告收入增长</span>
+                </div>
+                <div class="icard-metric">
+                  <span class="metric-num">+12.2<small>%</small></span>
+                  <span class="metric-label">同比增长</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="intern-card" data-index="3">
+              <div class="icard-period">2025.06 – 2025.09</div>
+              <div class="icard-company">雀巢中国</div>
+              <div class="icard-dept">婴儿奶粉事业部</div>
+              <div class="icard-role-tag">产品营销</div>
+              <p class="icard-bg">负责消费品的全渠道品牌营销，通过搜索优化、电商引流及医学会议，强化专业信任，驱动从认知到销售的全链路增长。</p>
+              <div class="icard-divider"></div>
+              <ul class="icard-highlights">
+                <li><strong>SEO优化与投广种草</strong> · 「内容占位+评论维护+水下UGC」SEO策略抢占流量入口</li>
+                <li><strong>广告引流与电商转化</strong> · 构建「意向锁定–高潜筛选–电商转化」精准运营链路</li>
+              </ul>
+              <div class="icard-metrics">
+                <div class="icard-metric">
+                  <span class="metric-num">14<small>%</small></span>
+                  <span class="metric-label">SOV增长</span>
+                </div>
+                <div class="icard-metric">
+                  <span class="metric-num">12<small>%</small></span>
+                  <span class="metric-label">商详UV购买转化率</span>
+                </div>
+                <div class="icard-metric">
+                  <span class="metric-num">418</span>
+                  <span class="metric-label">淡季驱动购买</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <button class="track-arrow track-arrow--next" aria-label="下一张">&#8250;</button>
+        </div>
+
+        <!-- 轨道指示点 -->
+        <div class="track-dots">
+          <span class="track-dot active" data-index="0"></span>
+          <span class="track-dot" data-index="1"></span>
+          <span class="track-dot" data-index="2"></span>
+          <span class="track-dot" data-index="3"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Tab 3 项目经历 ── -->
+    <div class="tab-panel" id="tab-projects">
+      <div class="project-cards">
+
+        <div class="proj-card">
+          <div class="proj-card-header">
+            <span class="proj-period">2025.03 – 2026.03</span>
+            <span class="proj-role-tag">产品经理</span>
+          </div>
+          <h3 class="proj-name">THU Info APP 开发与迭代</h3>
+          <p class="proj-bg">学生自主开发清华校园服务APP，集成课表、成绩单、校园资讯等高频场景。负责产品策划并运用 AI Coding 敏捷交付。</p>
+          <div class="proj-divider"></div>
+          <div class="proj-highlights">
+            <div class="proj-highlight">
+              <span class="highlight-tag">AI 搜索</span>
+              <p>2025年3月主导接入 DeepSeek 大模型，设计自然语言查询→精准资讯匹配→可溯源答案的产品方案</p>
+            </div>
+            <div class="proj-highlight">
+              <span class="highlight-tag">Vibe Coding</span>
+              <p>运用 AI Coding 在 48小时内完成日程功能交互重构，将课表视图改为自然时间视图</p>
+            </div>
+          </div>
+          <div class="proj-metrics">
+            <div class="proj-metric">
+              <span class="metric-num">1.2<small>万</small></span>
+              <span class="metric-label">日活峰值</span>
+            </div>
+          </div>
+          <a class="proj-link" href="https://thuinfo.net" target="_blank" rel="noopener">thuinfo.net ↗</a>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-card-header">
+            <span class="proj-period">2022.11 – 2023.01</span>
+            <span class="proj-role-tag">负责人</span>
+          </div>
+          <h3 class="proj-name">个性表达导向的 AI 语音应用研究课题</h3>
+          <p class="proj-bg">互联网发展进程中，AIGC 成为 web3.0 的重要内容，项目以落地良好的 AI 语音为抓手，确定调研外部环境、产业链、技术架构。</p>
+          <div class="proj-divider"></div>
+          <div class="proj-highlights">
+            <div class="proj-highlight">
+              <span class="highlight-tag">产业调研</span>
+              <p>以 PEST 框架分析产业外部环境，深入研究6家企业的产业布局，ASR、TTS等智能语音识别与合成技术</p>
+            </div>
+            <div class="proj-highlight">
+              <span class="highlight-tag">案例研究</span>
+              <p>结合在线音频、影视、游戏、直播市场中 AI 语音应用案例，利用魏朱模型分析商业模式</p>
+            </div>
+          </div>
+          <div class="proj-metrics">
+            <div class="proj-metric">
+              <span class="metric-num">6</span>
+              <span class="metric-label">深研企业数量</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── Tab 4 荣誉奖项 ── -->
+    <div class="tab-panel" id="tab-awards">
+      <div class="awards-grid">
+        <div class="award-card award-card--highlight">
+          <div class="award-title">国家奖学金</div>
+          <div class="award-year">2023</div>
+        </div>
+        <div class="award-card award-card--highlight">
+          <div class="award-title">北京市优秀毕业生</div>
+          <div class="award-year">2024</div>
+        </div>
+        <div class="award-card award-card--highlight">
+          <div class="award-title">国家级大学生创新创业训练项目结项</div>
+          <div class="award-year">2023</div>
+        </div>
+        <div class="award-card">
+          <div class="award-title">中国国际"互联网+"大学生创新创业大赛北京市三等奖</div>
+          <div class="award-year">2021</div>
+        </div>
+        <div class="award-card">
+          <div class="award-title">中国传媒大学三好学生</div>
+          <div class="award-year">2025</div>
+        </div>
+        <div class="award-card">
+          <div class="award-title">中央财经大学三好学生</div>
+          <div class="award-year">2024</div>
+        </div>
+        <div class="award-card">
+          <div class="award-title">中央财经大学一等全面发展奖学金</div>
+          <div class="award-year">2022</div>
+        </div>
+        <div class="award-card">
+          <div class="award-title">中国传媒大学研究生二等奖学金</div>
+          <div class="award-year">2025</div>
+        </div>
+        <div class="award-card">
+          <div class="award-title">中央财经大学学术科研与创新优秀奖学金</div>
+          <div class="award-year">2021</div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════ WORKS ═════════════════════════════════════ -->
+  <section class="works" id="works">
+    <div class="section-header">
+      <span class="section-label">AI Coding</span>
+      <h2 class="section-title">作品展示</h2>
+    </div>
+
+    <!-- Project 01 & 02 : THU Info APP 迭代 -->
+    <div class="work-block">
+      <div class="work-block-header">
+        <div class="work-meta">
+          <span class="work-num">01 — 02</span>
+          <h3 class="work-title">THU Info APP</h3>
+          <p class="work-subtitle">校园服务 APP 迭代演进</p>
+        </div>
+        <div class="work-tags">
+          <span class="wtag">iOS App</span>
+          <span class="wtag">DeepSeek</span>
+          <span class="wtag wtag--accent">Vibe Coding</span>
+          <span class="wtag">日活 1.2万</span>
+        </div>
+      </div>
+
+      <div class="app-compare">
+        <div class="app-version">
+          <div class="version-label">v1.0 · 课程表视图</div>
+          <div class="phone-mockup">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <!-- 替换为 v1 iframe -->
+                <div class="screen-placeholder">
+                  <span>v1 App 预览</span>
+                  <small>课程表 · 成绩单 · 资讯</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="version-link" href="https://thuinfo.net" target="_blank" rel="noopener">体验 v1 ↗</a>
+        </div>
+
+        <div class="compare-changes">
+          <div class="change-line">
+            <span class="change-num">01</span>
+            <div class="change-text">
+              <strong>信息架构重构</strong>
+              <p>课表视图 → 自然时间视图</p>
+            </div>
+          </div>
+          <div class="change-line">
+            <span class="change-num">02</span>
+            <div class="change-text">
+              <strong>新增 AI 搜索</strong>
+              <p>接入 DeepSeek 大模型</p>
+            </div>
+          </div>
+          <div class="change-line">
+            <span class="change-num">03</span>
+            <div class="change-text">
+              <strong>日程自定义</strong>
+              <p>支持编辑存量课程</p>
+            </div>
+          </div>
+          <div class="change-badge">48h 内交付</div>
+        </div>
+
+        <div class="app-version">
+          <div class="version-label">v2.0 · 自然时间视图</div>
+          <div class="phone-mockup">
+            <div class="phone-frame">
+              <div class="phone-screen">
+                <!-- 替换为 v2 iframe -->
+                <div class="screen-placeholder">
+                  <span>v2 App 预览</span>
+                  <small>AI搜索 · 日程 · 优化交互</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="version-link" href="https://thuinfo.net" target="_blank" rel="noopener">体验 v2 ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project 03 : Web 作品 -->
+    <div class="work-block work-block--web">
+      <div class="work-block-header">
+        <div class="work-meta">
+          <span class="work-num">03</span>
+          <h3 class="work-title">Web 作品名称</h3>
+          <p class="work-subtitle">待补充项目描述</p>
+        </div>
+        <div class="work-tags">
+          <span class="wtag">Web</span>
+          <span class="wtag wtag--accent">AI Coding</span>
+          <span class="wtag">可交互</span>
+        </div>
+      </div>
+
+      <div class="web-preview">
+        <div class="browser-mockup">
+          <div class="browser-bar">
+            <div class="browser-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="browser-url">待填写项目链接</div>
+          </div>
+          <div class="browser-screen">
+            <!-- 替换为 iframe -->
+            <div class="screen-placeholder screen-placeholder--web">
+              <span>Web 作品预览</span>
+              <small>替换为 iframe 或截图</small>
+            </div>
+          </div>
+        </div>
+        <div class="web-info">
+          <h4>项目亮点</h4>
+          <ul class="web-points">
+            <li>待补充项目背景与核心功能</li>
+            <li>待补充技术实现亮点</li>
+            <li>待补充 AI 辅助方式</li>
+          </ul>
+          <a class="proj-link" href="#" target="_blank" rel="noopener">在新窗口打开 ↗</a>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════════════════════════════ AIGC ══════════════════════════════════════ -->
+  <section class="aigc" id="aigc">
+    <div class="section-header">
+      <span class="section-label">AIGC</span>
+      <h2 class="section-title">创作合集</h2>
+    </div>
+
+    <div class="aigc-gallery">
+      <!-- 替换为真实 AIGC 作品 -->
+      <div class="aigc-item aigc-item--tall">
+        <div class="aigc-placeholder">作品 1</div>
+        <div class="aigc-overlay">
+          <span class="aigc-tool">Midjourney</span>
+        </div>
+      </div>
+      <div class="aigc-item">
+        <div class="aigc-placeholder">作品 2</div>
+        <div class="aigc-overlay">
+          <span class="aigc-tool">Sora</span>
+        </div>
+      </div>
+      <div class="aigc-item">
+        <div class="aigc-placeholder">作品 3</div>
+        <div class="aigc-overlay">
+          <span class="aigc-tool">即梦</span>
+        </div>
+      </div>
+      <div class="aigc-item aigc-item--wide">
+        <div class="aigc-placeholder">作品 4</div>
+        <div class="aigc-overlay">
+          <span class="aigc-tool">可灵</span>
+        </div>
+      </div>
+      <div class="aigc-item">
+        <div class="aigc-placeholder">作品 5</div>
+        <div class="aigc-overlay">
+          <span class="aigc-tool">Claude</span>
+        </div>
+      </div>
+      <div class="aigc-item">
+        <div class="aigc-placeholder">作品 6</div>
+        <div class="aigc-overlay">
+          <span class="aigc-tool">DALL·E</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════ FOOTER ════════════════════════════════════ -->
+  <footer class="footer" id="contact">
+    <div class="footer-inner">
+      <p class="footer-name">Fiona</p>
+      <p class="footer-title">Product Manager · AI Native</p>
+      <div class="footer-links">
+        <a href="mailto:placeholder@email.com">Email</a>
+        <span class="footer-sep">·</span>
+        <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="footer-sep">·</span>
+        <a href="#" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p class="footer-made">Made with Claude · 2025</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
