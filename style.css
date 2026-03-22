@@ -308,7 +308,7 @@ section { padding: 8rem 3rem; }
   align-items: flex-end;
   justify-content: space-between;
   gap: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 0;
 }
 
 /* Tabs */
@@ -347,6 +347,16 @@ section { padding: 8rem 3rem; }
   animation: fadeUp 0.4s ease;
 }
 .tab-panel.active { display: block; }
+/* 教育 / 项目 / 荣誉：内容与「个人简历」标题区拉开约 100px，视觉中心更落在卡片 */
+#tab-education.tab-panel,
+#tab-projects.tab-panel,
+#tab-awards.tab-panel {
+  padding-top: 100px;
+}
+/* 实习经历保持相对紧凑（约等于原先 header 下边距） */
+#tab-internship.tab-panel {
+  padding-top: 2rem;
+}
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
   to   { opacity: 1; transform: translateY(0); }
