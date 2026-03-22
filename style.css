@@ -1097,7 +1097,7 @@ section { padding: 8rem 3rem; }
   .aigc-item--wide { grid-column: span 2; }
   .project-cards { grid-template-columns: 1fr; }
   .intern-timeline { gap: 0; }
-  .node-period { display: none; }
+  .node-period { display: inline; }
   .awards-grid { grid-template-columns: repeat(2, 1fr); }
   .resume-tabs { overflow-x: auto; }
   .tab-btn { white-space: nowrap; }
