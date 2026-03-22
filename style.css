@@ -590,16 +590,24 @@ section { padding: 8rem 3rem; }
 }
 
 .icard-period-row {
+  position: relative;
+  z-index: 1;
   display: flex; justify-content: space-between; align-items: center;
   margin-bottom: 0.6rem;
 }
 .icard-period { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.04em; }
 .icard-company {
+  position: relative;
+  z-index: 1;
   font-family: var(--font-serif);
   font-size: 1.75rem; font-weight: 600; color: #1A1A1A;
   line-height: 1.1; margin-bottom: 0.2rem;
 }
-.icard-dept { font-size: 0.85rem; color: var(--text-main); margin-bottom: 0.75rem; }
+.icard-dept {
+  position: relative;
+  z-index: 1;
+  font-size: 0.85rem; color: #6B6B6B; margin-bottom: 0.75rem;
+}
 .icard-role-tag {
   display: inline-block;
   padding: 0.25rem 0.75rem;
@@ -609,24 +617,36 @@ section { padding: 8rem 3rem; }
   font-size: 0.72rem; font-weight: 600;
   color: var(--green-dk); letter-spacing: 0.06em;
 }
-.icard-bg { font-size: 0.82rem; color: var(--text-sub); line-height: 1.7; margin-bottom: 1rem; }
-.icard-bg strong { color: var(--text-main); font-weight: 600; }
+.icard-bg {
+  position: relative;
+  z-index: 1;
+  font-size: 0.82rem; color: #6B6B6B; line-height: 1.7; margin-bottom: 1rem;
+}
+.icard-bg strong { color: #6B6B6B; font-weight: 600; }
 .icard-divider {
+  position: relative;
+  z-index: 1;
   height: 1px; background: var(--cream-dark); margin: 1rem 0;
 }
-.icard-work-section { margin-bottom: 1.5rem; }
+.icard-work-section {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.5rem;
+}
 .icard-work-title {
   font-size: 0.82rem;
   color: #6B6B6B;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: 0.5rem;
 }
 .icard-highlights {
+  position: relative;
+  z-index: 1;
   list-style: none; display: flex; flex-direction: column; gap: 0.5rem;
   margin-bottom: 1.5rem;
 }
 .icard-highlights li {
-  font-size: 0.83rem; color: var(--text-sub);
+  font-size: 0.83rem; color: #6B6B6B;
   padding-left: 1rem; position: relative;
 }
 .icard-highlights li::before {
@@ -635,10 +655,12 @@ section { padding: 8rem 3rem; }
   width: 5px; height: 5px; border-radius: 50%;
   background: var(--green-md);
 }
-.icard-highlights li strong { color: var(--text-main); font-weight: 600; }
+.icard-highlights li strong { color: #6B6B6B; font-weight: 600; }
 
 /* 数据亮点 */
 .icard-metrics {
+  position: relative;
+  z-index: 1;
   display: flex; gap: 0; flex-wrap: wrap;
   border-top: 1px solid var(--cream-dark);
   padding-top: 1.25rem;
