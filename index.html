@@ -38,10 +38,11 @@
         muted
         playsinline
         preload="auto"
+        poster="素材/右下角花朵 1.svg"
       >
         <source src="素材/3月22日(1)/3月22日透明底花朵.mov" type='video/quicktime; codecs="hvc1"' />
       </video>
-      <img class="hero-br-fallback" src="素材/3月22日(1)/3月22日(1).gif" alt="" aria-hidden="true" />
+      <img class="hero-br-fallback" src="素材/右下角花朵 1.svg" alt="" aria-hidden="true" />
     </div>
 
     <div class="hero-content">
@@ -575,11 +576,13 @@
       <div class="work-block-header">
         <div class="work-meta">
           <span class="work-num">03</span>
-          <h3 class="work-title">Web 作品名称</h3>
-          <p class="work-subtitle">待补充项目描述</p>
+          <h3 class="work-title">Campus Food Seeker</h3>
+          <p class="work-subtitle">大学城美食地图 · 本地化餐饮探索 Web 应用</p>
         </div>
         <div class="work-tags">
           <span class="wtag">Web</span>
+          <span class="wtag">Node.js</span>
+          <span class="wtag">SQLite</span>
           <span class="wtag wtag--accent">AI Coding</span>
           <span class="wtag">可交互</span>
         </div>
@@ -591,24 +594,31 @@
             <div class="browser-dots">
               <span></span><span></span><span></span>
             </div>
-            <div class="browser-url">待填写项目链接</div>
+            <div class="browser-url">oliviafiona.github.io/Campus-Food-Seeker</div>
           </div>
           <div class="browser-screen">
-            <!-- 替换为 iframe -->
-            <div class="screen-placeholder screen-placeholder--web">
-              <span>Web 作品预览</span>
-              <small>替换为 iframe 或截图</small>
+            <iframe
+              class="web-embed"
+              src="https://oliviafiona.github.io/Campus-Food-Seeker/"
+              title="Campus Food Seeker 在线预览"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+            <div class="web-embed-fallback" aria-hidden="true">
+              <span>在线预览加载中或暂不可用</span>
+              <small>可点击右侧按钮在新窗口打开 GitHub 仓库</small>
             </div>
-          </div>
+          </div> 
         </div>
         <div class="web-info">
           <h4>项目亮点</h4>
           <ul class="web-points">
-            <li>待补充项目背景与核心功能</li>
-            <li>待补充技术实现亮点</li>
-            <li>待补充 AI 辅助方式</li>
+            <li>用户痛点：现有产品⽆法针对⼤学⽣群体个性化推荐美⻝，难以解决⽤餐时间短、周边餐馆⾼峰期⽤餐难等问题</li>
+            <li>核心亮点：基于地图的周边商家探索，支持展示实时拥挤程度和热门榜单</li>
+            <li>前后端结构清晰，支持快速本地初始化与功能迭代</li>
           </ul>
-          <a class="proj-link" href="#" target="_blank" rel="noopener">在新窗口打开 ↗</a>
+          <a class="proj-link" href="https://github.com/OliviaFiona/Campus-Food-Seeker" target="_blank" rel="noopener">查看 GitHub 仓库 ↗</a>
+          <a class="proj-link proj-link--live" href="https://oliviafiona.github.io/Campus-Food-Seeker/pages/login.html" target="_blank" rel="noopener">体验Campus Food Seeker ↗</a>
         </div>
       </div>
     </div>

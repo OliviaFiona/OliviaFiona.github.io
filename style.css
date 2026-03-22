@@ -134,12 +134,28 @@ body {
   max-height: 50vh;
   object-fit: contain;
   object-position: right bottom;
+  transform-origin: 50% 100%;
+  animation: flowerBreeze 5.2s ease-in-out infinite;
 }
 .flower-br.show-video .hero-br-video {
   display: block;
 }
 .flower-br.show-video .hero-br-fallback {
   display: none;
+}
+@keyframes flowerBreeze {
+  0%, 100% {
+    transform: rotate(0deg) translateY(0);
+  }
+  25% {
+    transform: rotate(-1.3deg) translateY(-2px);
+  }
+  50% {
+    transform: rotate(0.8deg) translateY(0);
+  }
+  75% {
+    transform: rotate(-0.6deg) translateY(-1px);
+  }
 }
 @keyframes flowerPulse {
   0%, 100% { transform: translate(-30%, -30%) scale(1); opacity: 0.18; }
@@ -863,6 +879,11 @@ section { padding: 8rem 3rem; }
   transition: color var(--transition), border-color var(--transition);
 }
 .proj-link:hover { color: #3a6349; border-color: #3a6349; }
+.proj-link--live {
+  display: block;
+  margin-top: 0.7rem;
+  width: fit-content;
+}
 
 /* ── 荣誉奖项 ── */
 .awards-grid {
@@ -1123,6 +1144,7 @@ section { padding: 8rem 3rem; }
   align-items: start;
 }
 .browser-mockup {
+  width: 100%;
   border: 1px solid var(--cream-dark);
   border-radius: var(--radius-md); overflow: hidden;
   box-shadow: var(--shadow-md);
@@ -1144,9 +1166,46 @@ section { padding: 8rem 3rem; }
   padding: 0.3rem 0.75rem; text-align: center;
 }
 .browser-screen {
-  height: 320px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 320px;
   background: var(--cream); overflow: hidden;
+  position: relative;
   display: flex; align-items: center; justify-content: center;
+}
+.web-embed {
+  width: 1280px;
+  height: 720px;
+  border: 0;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-origin: top left;
+  z-index: 2;
+}
+.web-embed-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  padding: 1rem;
+  text-align: center;
+  background: linear-gradient(135deg, var(--cream-card) 0%, rgba(200,230,201,0.15) 100%);
+}
+.web-embed-fallback span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--green-dk);
+}
+.web-embed-fallback small {
+  font-size: 0.65rem;
+  color: var(--text-muted);
 }
 .web-info h4 {
   font-size: 0.85rem; font-weight: 600; color: var(--text-main);
