@@ -299,6 +299,8 @@ section { padding: 8rem 3rem; }
 .resume {
   background: var(--cream);
   max-width: 100%;
+  padding-top: 2rem;
+  scroll-margin-top: 45px;
 }
 .resume > * { max-width: 1120px; margin-left: auto; margin-right: auto; }
 
@@ -515,9 +517,10 @@ section { padding: 8rem 3rem; }
 
 /* 卡片轨道外层 */
 .intern-track-outer {
-  position: relative; display: flex; align-items: center; gap: 0;
+  position: relative;
+  display: flex;
+  align-items: center;
   width: 100%;
-  overflow: hidden;
 }
 
 /* 箭头 */
@@ -535,7 +538,7 @@ section { padding: 8rem 3rem; }
   border-radius: 0;
   overflow: visible;
   cursor: pointer;
-  z-index: 2;
+  z-index: 10;
   display: block;
   transition: opacity var(--transition);
   user-select: none;
@@ -551,31 +554,47 @@ section { padding: 8rem 3rem; }
   transform: scaleX(-1);
 }
 
-/* 卡片容器 */
+/* 卡片容器 - Tab 切换 */
 .intern-track {
   flex: 1;
-  display: flex;
-  align-items: center;
-  padding: 1.5rem 0.75rem;
-  gap: 1.25rem;
-  transition: transform var(--transition);
+  position: relative;
+  padding: 1.5rem 0;
   min-width: 0;
+  /* 使用 grid 让所有卡片重叠在同一区域 */
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
 }
 
-/* 实习卡片 */
+/* 实习卡片 - Tab 切换 */
 .intern-card {
+  /* 所有卡片放在同一个 grid cell */
+  grid-column: 1;
+  grid-row: 1;
+  
   position: relative;
-  flex: 0 0 calc(100% - 1.5rem);
-  min-width: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: calc(100% - 80px);
+  max-width: 800px;
   background: var(--cream-card);
   border: 1px solid var(--cream-dark);
   border-left: 4px solid var(--green-line);
   border-radius: var(--radius-md);
   padding: 2.5rem 2.75rem;
   box-shadow: var(--shadow-sm);
-  opacity: 0.55; transform: scale(0.97);
-  transition: opacity var(--transition), transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(100px) scale(0.95);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              opacity 0.4s ease,
+              visibility 0.4s ease,
+              box-shadow var(--transition), 
+              border-color var(--transition);
   pointer-events: none;
+  z-index: 0;
+  /* 默认隐藏，但不脱离文档流，grid 会取最大高度 */
 }
 .intern-card::before {
   content: '';
@@ -587,10 +606,25 @@ section { padding: 8rem 3rem; }
   z-index: 0;
 }
 .intern-card.active {
-  opacity: 1; transform: scale(1);
+  visibility: visible;
+  transform: translateX(0) scale(1);
+  opacity: 1;
   box-shadow: var(--light-glow);
   border-left-color: var(--green-dk);
   pointer-events: auto;
+  z-index: 2;
+}
+.intern-card.prev {
+  visibility: hidden;
+  transform: translateX(-100px) scale(0.95);
+  opacity: 0;
+  z-index: 1;
+}
+.intern-card.next {
+  visibility: hidden;
+  transform: translateX(100px) scale(0.95);
+  opacity: 0;
+  z-index: 1;
 }
 
 /* 实习卡片 hover：右下角装饰图 */

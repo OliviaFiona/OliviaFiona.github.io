@@ -76,7 +76,7 @@ tabBtns.forEach(btn => {
   });
 });
 
-/* ─── Internship Card Slider ─── */
+/* ─── Internship Card Tab Switcher ─── */
 (function () {
   const track     = document.getElementById('internTrack');
   const cards     = Array.from(track.querySelectorAll('.intern-card'));
@@ -88,75 +88,67 @@ tabBtns.forEach(btn => {
   if (!track || cards.length === 0) return;
 
   let current = 0;
-  let startX = 0, isDragging = false;
 
-  function goTo(index) {
+  function goTo(index, direction) {
     // clamp
     index = Math.max(0, Math.min(cards.length - 1, index));
+    
+    // 确定滑动方向：如果未指定，根据索引差值判断
+    if (direction === undefined) {
+      direction = index > current ? 'next' : 'prev';
+    }
+    
+    const prevIndex = current;
     current = index;
 
-    // slide: move track so active card is centered
-    // Calculate based on track's visible width (minus padding)
-    const trackRect = track.getBoundingClientRect();
-    const trackWidth = trackRect.width;
-    const gap = 20; // matches CSS gap
-    // Account for horizontal padding (0.75rem * 2 = 1.5rem ≈ 24px)
-    const cardWidth = trackWidth - 24;
-    const offset = index * (cardWidth + gap);
-    track.style.transform = `translateX(-${offset}px)`;
-    track.style.transition = 'transform 0.45s cubic-bezier(0.4,0,0.2,1)';
+    // 更新卡片位置类
+    cards.forEach((card, i) => {
+      card.classList.remove('active', 'prev', 'next');
+      
+      if (i === current) {
+        // 当前卡片：居中显示
+        card.classList.add('active');
+      } else if (i < current) {
+        // 当前卡片之前的卡片：在左侧
+        card.classList.add('prev');
+      } else {
+        // 当前卡片之后的卡片：在右侧
+        card.classList.add('next');
+      }
+    });
 
-    cards.forEach((c, i) => c.classList.toggle('active', i === index));
-    dots.forEach((d, i)  => d.classList.toggle('active', i === index));
-    nodes.forEach((n, i) => n.classList.toggle('active', i === index));
+    // 更新指示点
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    
+    // 更新时间轴节点
+    nodes.forEach((n, i) => n.classList.toggle('active', i === current));
   }
 
-  prevBtn.addEventListener('click', () => goTo(current - 1));
-  nextBtn.addEventListener('click', () => goTo(current + 1));
+  prevBtn.addEventListener('click', () => goTo(current - 1, 'prev'));
+  nextBtn.addEventListener('click', () => goTo(current + 1, 'next'));
 
-  dots.forEach(d  => d.addEventListener('click', () => goTo(+d.dataset.index)));
+  dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.index)));
   nodes.forEach(n => n.addEventListener('click', () => goTo(+n.dataset.index)));
-
-  // drag / swipe
-  track.addEventListener('pointerdown', e => {
-    startX = e.clientX; isDragging = true;
-    track.style.transition = 'none';
-    track.setPointerCapture(e.pointerId);
-  });
-  track.addEventListener('pointermove', e => {
-    if (!isDragging) return;
-    const dx = e.clientX - startX;
-    const trackRect = track.getBoundingClientRect();
-    const trackWidth = trackRect.width;
-    const cardWidth = trackWidth - 24; // subtract padding
-    const gap = 20;
-    const base = current * (cardWidth + gap);
-    track.style.transform = `translateX(${-base + dx}px)`;
-  });
-  track.addEventListener('pointerup', e => {
-    if (!isDragging) return;
-    isDragging = false;
-    const dx = e.clientX - startX;
-    if (Math.abs(dx) > 60) {
-      goTo(dx < 0 ? current + 1 : current - 1);
-    } else {
-      goTo(current);
-    }
-  });
 
   // keyboard
   document.addEventListener('keydown', e => {
     const internTab = document.getElementById('tab-internship');
     if (!internTab.classList.contains('active')) return;
-    if (e.key === 'ArrowLeft')  goTo(current - 1);
-    if (e.key === 'ArrowRight') goTo(current + 1);
+    if (e.key === 'ArrowLeft')  goTo(current - 1, 'prev');
+    if (e.key === 'ArrowRight') goTo(current + 1, 'next');
   });
 
-  // init
-  goTo(0);
-
-  // recalculate on resize
-  window.addEventListener('resize', () => goTo(current));
+  // init - 设置初始位置
+  cards.forEach((card, i) => {
+    card.classList.remove('active', 'prev', 'next');
+    if (i === 0) {
+      card.classList.add('active');
+    } else {
+      card.classList.add('next');
+    }
+  });
+  dots.forEach((d, i) => d.classList.toggle('active', i === 0));
+  nodes.forEach((n, i) => n.classList.toggle('active', i === 0));
 })();
 
 /* ─── Scroll reveal ─── */
