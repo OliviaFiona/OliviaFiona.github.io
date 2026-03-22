@@ -895,45 +895,100 @@ section { padding: 8rem 3rem; }
 .award-card {
   position: relative;
   overflow: hidden;
-  background: #fffef7;
-  border: 1px solid #f3e8cb;
-  border-left: 5px solid var(--green-dk);
-  border-radius: 18px;
+  background:
+    radial-gradient(120% 120% at 8% 5%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 42%),
+    linear-gradient(145deg, #fffaf0 0%, #f9edd7 58%, #f2dfbf 100%);
+  border: 2px solid #d9bc88;
+  border-radius: 20px;
   padding: 1.2rem 2.35rem 1.2rem 1.4rem;
   min-height: 120px;
   display: flex; flex-direction: column;
   justify-content: center;
   gap: 0.6rem;
-  box-shadow: 0 2px 16px rgba(90,155,106,0.05);
-  transition: box-shadow var(--transition), transform var(--transition), border-color var(--transition);
+  box-shadow:
+    0 10px 22px rgba(121, 93, 58, 0.12),
+    inset 0 0 0 1px rgba(255, 245, 223, 0.9),
+    inset 0 3px 8px rgba(255,255,255,0.32),
+    inset 0 -6px 14px rgba(175, 139, 90, 0.12);
+  transition:
+    box-shadow var(--transition),
+    transform var(--transition),
+    border-color var(--transition);
 }
 .award-card::before {
-  content: none;
+  content: '';
+  position: absolute;
+  inset: 0.45rem;
+  border-radius: 14px;
+  background:
+    repeating-linear-gradient(
+      12deg,
+      rgba(166, 138, 92, 0.07) 0 1px,
+      rgba(255, 255, 255, 0) 1px 5px
+    ),
+    repeating-linear-gradient(
+      -14deg,
+      rgba(255, 255, 255, 0.18) 0 1px,
+      rgba(255, 255, 255, 0) 1px 7px
+    ),
+    linear-gradient(165deg, rgba(255,253,247,0.95) 0%, rgba(252,242,224,0.82) 100%);
+  border: 1px solid rgba(240, 214, 170, 0.85);
+  pointer-events: none;
+  z-index: 0;
+}
+.award-card::after {
+  content: '';
+  position: absolute;
+  inset: 0.9rem;
+  border-radius: 11px;
+  border: 1px solid rgba(194, 153, 96, 0.4);
+  box-shadow: inset 0 0 0 1px rgba(255, 250, 237, 0.45);
+  pointer-events: none;
+  z-index: 0;
 }
 .award-card:hover {
-  box-shadow: 0 10px 28px rgba(90,155,106,0.12);
-  transform: translateY(-2px);
-  border-color: #ebdfbd;
+  box-shadow:
+    0 14px 30px rgba(121, 93, 58, 0.18),
+    inset 0 0 0 1px rgba(255, 247, 226, 0.95),
+    inset 0 4px 10px rgba(255,255,255,0.42),
+    inset 0 -8px 16px rgba(174, 126, 56, 0.2);
+  transform: translateY(-3px);
+  border-color: #c79656;
+}
+.award-card:hover::after {
+  border-color: rgba(178, 126, 58, 0.62);
 }
 .award-card--highlight {
   grid-column: span 2;
-  border-left: 6px solid var(--green-dk);
-  background: linear-gradient(135deg, #fffef7 0%, #f9fdf7 100%);
+  border-color: #c38f4e;
+  background:
+    radial-gradient(120% 130% at 10% 8%, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0) 45%),
+    linear-gradient(145deg, #fff7e7 0%, #f6e6c8 60%, #eed6aa 100%);
   min-height: 160px;
   padding: 1.8rem 2.5rem 1.8rem 2rem;
+}
+.award-card--highlight::before {
+  border-color: rgba(225, 182, 120, 0.86);
+}
+.award-card--highlight::after {
+  border-color: rgba(188, 136, 66, 0.45);
+}
+.award-card--highlight:hover {
+  border-color: #aa6f2f;
 }
 .award-title {
   position: relative;
   z-index: 1;
   font-size: clamp(0.82rem, 0.95vw, 0.92rem);
   font-weight: 400;
-  color: #6B6B6B;
+  color: #6e5a42;
   line-height: 1.4;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.45);
 }
 .award-card--highlight .award-title {
   font-size: clamp(1rem, 1.1vw, 1.1rem);
   font-weight: 500;
-  color: var(--text-main);
+  color: #4f3a22;
 }
 .award-year {
   position: relative;
@@ -941,14 +996,14 @@ section { padding: 8rem 3rem; }
   font-family: var(--font-serif);
   font-size: clamp(1.2rem, 1.55vw, 1.45rem);
   line-height: 1;
-  color: #6B6B6B;
+  color: #7c5f40;
   letter-spacing: 0.02em;
   font-weight: 400;
   margin-top: auto;
 }
 .award-card--highlight .award-year {
   font-size: clamp(1.6rem, 1.9vw, 1.8rem);
-  color: var(--green-dk);
+  color: #996225;
   font-weight: 600;
 }
 
@@ -961,7 +1016,7 @@ section { padding: 8rem 3rem; }
   aspect-ratio: 1;
   max-width: 55%;
   pointer-events: none;
-  z-index: 0;
+  z-index: 3;
   transform: translate(12%, 18%);
 }
 .award-card-decor-glass {
@@ -995,6 +1050,36 @@ section { padding: 8rem 3rem; }
     rgba(255, 255, 255, 0.06) 50%,
     rgba(212, 241, 215, 0.12) 100%
   );
+}
+.award-card-decor--floral {
+  right: 1rem;
+  bottom: 0;
+  height: clamp(56px, 5.2vw, 68px);
+  width: auto;
+  max-width: none;
+  aspect-ratio: auto;
+  transform: none;
+}
+.award-card--highlight .award-card-decor--floral {
+  right: 1.1rem;
+  bottom: 0;
+  height: 58%;
+}
+.award-card-decor-flower {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  position: relative;
+  z-index: 3;
+  filter: saturate(0.88) contrast(1.04);
+  transform-origin: bottom center;
+  transform: scale(1);
+  transition: transform 260ms ease;
+}
+.award-card:hover .award-card-decor--floral .award-card-decor-flower {
+  transform: scale(1.06);
 }
 
 /* ══════════════════════════════ WORKS ═════════════════════════════ */
@@ -1061,7 +1146,7 @@ section { padding: 8rem 3rem; }
 
 .phone-mockup { position: relative; }
 .phone-frame {
-  width: 200px; height: 424px;
+  width: 240px; height: 509px;
   background: #1a1a1a;
   border-radius: 32px;
   padding: 12px 8px;
@@ -1086,7 +1171,7 @@ section { padding: 8rem 3rem; }
   height: 844px;
   border: 0;
   background: #fff;
-  transform: scale(0.472);
+  transform: scale(0.574);
   transform-origin: top left;
 }
 .phone-video {
