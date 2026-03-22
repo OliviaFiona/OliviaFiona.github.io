@@ -32,7 +32,16 @@
       <div class="flower-placeholder flower-placeholder--tl"></div>
     </div>
     <div class="flower-layer flower-br" aria-hidden="true">
-      <div class="flower-placeholder flower-placeholder--br"></div>
+      <video
+        class="hero-br-video"
+        autoplay
+        muted
+        playsinline
+        preload="auto"
+      >
+        <source src="素材/3月22日(1)/3月22日透明底花朵.mov" type='video/quicktime; codecs="hvc1"' />
+      </video>
+      <img class="hero-br-fallback" src="素材/3月22日(1)/3月22日(1).gif" alt="" aria-hidden="true" />
     </div>
 
     <div class="hero-content">
@@ -167,41 +176,48 @@
 
         <!-- 卡片轨道 -->
         <div class="intern-track-outer">
-          <button class="track-arrow track-arrow--prev" aria-label="上一张">&#8249;</button>
+          <button class="track-arrow track-arrow--prev" aria-label="上一张"></button>
           <div class="intern-track" id="internTrack">
 
             <div class="intern-card active" data-index="0">
-              <div class="icard-period">2025.09 – 2026.03</div>
+              <div class="icard-period-row">
+                <span class="icard-period">2025.09 – 2026.03</span>
+                <span class="icard-role-tag">AI 产品策划</span>
+              </div>
               <div class="icard-company">腾讯</div>
               <div class="icard-dept">PCG 平台与内容事业群</div>
-              <div class="icard-role-tag">AI 产品策划</div>
-              <p class="icard-bg">大数据平台部，聚焦企业数智与效率工具赛道，核心产品包括「腾讯灯塔」及知识管理工具「狗子AI」。</p>
+              <p class="icard-bg"><strong>业务背景：</strong>大数据平台部，聚焦企业数智与效率工具赛道，核心产品包括「腾讯灯塔」及「工作提效类 AI」</p>
               <div class="icard-divider"></div>
-              <ul class="icard-highlights">
-                <li><strong>YesPM</strong> Agent驱动效率平台 · 2周完成MVP从0到1敏捷上线</li>
-                <li><strong>腾讯灯塔</strong>权限系统 · Q4主导推动34个功能上线</li>
-              </ul>
+              <div class="icard-work-section">
+                <div class="icard-work-title">核心工作：</div>
+                <ul class="icard-highlights">
+                  <li><strong>YesPM Agent 平台：</strong>2 周完成 MVP 从 0 到 1 敏捷上线，打造具备自主规划与工具编排能力的 Agent 提效平台</li>
+                  <li><strong>腾讯灯塔权限系统：</strong>Q4 主导推动 34 个功能上线，KA 客户当月交付率达 100%</li>
+                </ul>
+              </div>
               <div class="icard-metrics">
                 <div class="icard-metric">
                   <span class="metric-num">460<small>+</small></span>
-                  <span class="metric-label">首日内网用户</span>
+                  <span class="metric-label">YesPM 首日 UV</span>
                 </div>
                 <div class="icard-metric">
                   <span class="metric-num">100<small>%</small></span>
-                  <span class="metric-label">KA当月交付率</span>
+                  <span class="metric-label">KA 需求当月交付率</span>
                 </div>
                 <div class="icard-metric">
                   <span class="metric-num">34</span>
-                  <span class="metric-label">功能上线数</span>
+                  <span class="metric-label">Q4 功能上线数</span>
                 </div>
               </div>
             </div>
 
             <div class="intern-card" data-index="1">
-              <div class="icard-period">2025.02 – 2025.06</div>
+              <div class="icard-period-row">
+                <span class="icard-period">2025.02 – 2025.06</span>
+                <span class="icard-role-tag">商业化策略运营</span>
+              </div>
               <div class="icard-company">飞书</div>
               <div class="icard-dept">Lark Admin and Security Product</div>
-              <div class="icard-role-tag">商业化策略运营</div>
               <p class="icard-bg">聚焦飞书安全与合规产品线的市场增长，驱动中大型企业客户对数据安全、AI合规及出海风控等高价值场景的认知转化与商机落地。</p>
               <div class="icard-divider"></div>
               <ul class="icard-highlights">
@@ -225,10 +241,12 @@
             </div>
 
             <div class="intern-card" data-index="2">
-              <div class="icard-period">2024.03 – 2024.08</div>
+              <div class="icard-period-row">
+                <span class="icard-period">2024.03 – 2024.08</span>
+                <span class="icard-role-tag">广告产品增长运营</span>
+              </div>
               <div class="icard-company">字节跳动</div>
               <div class="icard-dept">巨量引擎 · 广告营销产品</div>
-              <div class="icard-role-tag">广告产品增长运营</div>
               <p class="icard-bg">聚焦商业化营销产品Dou+、巨量AD、巨量本地推用户增长与转化，通过策略运营与产品协同，驱动用户高价值行为及广告消耗提升。</p>
               <div class="icard-divider"></div>
               <ul class="icard-highlights">
@@ -252,10 +270,12 @@
             </div>
 
             <div class="intern-card" data-index="3">
-              <div class="icard-period">2025.06 – 2025.09</div>
+              <div class="icard-period-row">
+                <span class="icard-period">2025.06 – 2025.09</span>
+                <span class="icard-role-tag">市场营销</span>
+              </div>
               <div class="icard-company">雀巢中国</div>
               <div class="icard-dept">婴儿奶粉事业部</div>
-              <div class="icard-role-tag">市场营销</div>
               <p class="icard-bg">负责医学属性消费品的全渠道品牌营销，通过搜索优化、电商引流及医学会议，强化专业信任，驱动从认知到销售的全链路增长。</p>
               <div class="icard-divider"></div>
               <ul class="icard-highlights">
@@ -279,7 +299,7 @@
             </div>
 
           </div>
-          <button class="track-arrow track-arrow--next" aria-label="下一张">&#8250;</button>
+          <button class="track-arrow track-arrow--next" aria-label="下一张"></button>
         </div>
 
         <!-- 轨道指示点 -->

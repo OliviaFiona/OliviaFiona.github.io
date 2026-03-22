@@ -4,6 +4,40 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 });
 
+/* ─── Hero flower video compatibility fallback ─── */
+(function () {
+  const videoLayer = document.querySelector('.flower-br');
+  const heroVideo = document.querySelector('.hero-br-video');
+  if (!videoLayer || !heroVideo) return;
+
+  // Chromium often reports partial HEVC support but cannot render alpha MOV reliably.
+  // Use MOV only on Safari; all other browsers keep GIF fallback.
+  const ua = navigator.userAgent;
+  const isSafari =
+    /Safari/.test(ua) &&
+    !/Chrome|CriOS|Chromium|Edg|OPR|Firefox|FxiOS|SamsungBrowser/.test(ua);
+  if (!isSafari) return;
+
+  const tryPlay = () => {
+    heroVideo.play()
+      .then(() => {
+        videoLayer.classList.add('show-video');
+      })
+      .catch(() => {
+        videoLayer.classList.remove('show-video');
+      });
+  };
+
+  if (heroVideo.readyState >= 2) {
+    tryPlay();
+  } else {
+    heroVideo.addEventListener('canplay', tryPlay, { once: true });
+  }
+  heroVideo.addEventListener('error', () => {
+    videoLayer.classList.remove('show-video');
+  });
+})();
+
 /* ─── Typewriter ─── */
 const phrases = [
   '用 AI 重新定义产品思维与交付方式',
