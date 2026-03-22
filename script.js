@@ -46,17 +46,19 @@ const phrases = [
 ];
 let pi = 0, ci = 0, deleting = false;
 const el = document.getElementById('typewriter');
+const typingText = document.createElement('span');
+typingText.className = 'typewriter-text';
 const cursor = document.createElement('span');
 cursor.className = 'cursor-blink';
-el.after(cursor);
+el.replaceChildren(typingText, cursor);
 
 function type() {
   const phrase = phrases[pi];
   if (!deleting) {
-    el.textContent = phrase.slice(0, ++ci);
+    typingText.textContent = phrase.slice(0, ++ci);
     if (ci === phrase.length) { deleting = true; setTimeout(type, 2200); return; }
   } else {
-    el.textContent = phrase.slice(0, --ci);
+    typingText.textContent = phrase.slice(0, --ci);
     if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; setTimeout(type, 400); return; }
   }
   setTimeout(type, deleting ? 40 : 75);

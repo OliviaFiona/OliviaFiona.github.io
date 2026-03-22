@@ -99,7 +99,6 @@ body {
 
 /* 花朵占位层 */
 .flower-layer { position: absolute; pointer-events: none; z-index: 1; }
-.flower-tl { top: 0; left: 0; }
 .flower-br { bottom: 0; right: 0; }
 
 .flower-placeholder {
