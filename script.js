@@ -122,10 +122,19 @@ tabBtns.forEach(btn => {
     
     // 更新时间轴节点
     nodes.forEach((n, i) => n.classList.toggle('active', i === current));
+
+    if (prevBtn && nextBtn) {
+      const atStart = current === 0;
+      const atEnd = current === cards.length - 1;
+      prevBtn.classList.toggle('is-disabled', atStart);
+      nextBtn.classList.toggle('is-disabled', atEnd);
+      prevBtn.disabled = atStart;
+      nextBtn.disabled = atEnd;
+    }
   }
 
-  prevBtn.addEventListener('click', () => goTo(current - 1, 'prev'));
-  nextBtn.addEventListener('click', () => goTo(current + 1, 'next'));
+  prevBtn?.addEventListener('click', () => goTo(current - 1, 'prev'));
+  nextBtn?.addEventListener('click', () => goTo(current + 1, 'next'));
 
   dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.index)));
   nodes.forEach(n => n.addEventListener('click', () => goTo(+n.dataset.index)));
@@ -149,6 +158,11 @@ tabBtns.forEach(btn => {
   });
   dots.forEach((d, i) => d.classList.toggle('active', i === 0));
   nodes.forEach((n, i) => n.classList.toggle('active', i === 0));
+
+  if (prevBtn && nextBtn) {
+    prevBtn.classList.add('is-disabled');
+    prevBtn.disabled = true;
+  }
 })();
 
 /* ─── Scroll reveal ─── */
