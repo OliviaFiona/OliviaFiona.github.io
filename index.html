@@ -18,7 +18,14 @@
       <ul class="nav-links">
         <li><a href="#resume">About</a></li>
         <li><a href="#works">Works</a></li>
-        <li><a href="#aigc">AIGC</a></li>
+        <li>
+          <a
+            href="#aigc"
+            class="coming-soon-trigger coming-soon-trigger--nav"
+            data-tooltip="正在建设中"
+            aria-label="AIGC，正在建设中"
+          >AIGC</a>
+        </li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -614,43 +621,15 @@
       <h2 class="section-title">创作合集</h2>
     </div>
 
-    <div class="aigc-gallery">
-      <!-- 替换为真实 AIGC 作品 -->
-      <div class="aigc-item aigc-item--tall">
-        <div class="aigc-placeholder">作品 1</div>
-        <div class="aigc-overlay">
-          <span class="aigc-tool">Midjourney</span>
-        </div>
-      </div>
-      <div class="aigc-item">
-        <div class="aigc-placeholder">作品 2</div>
-        <div class="aigc-overlay">
-          <span class="aigc-tool">Sora</span>
-        </div>
-      </div>
-      <div class="aigc-item">
-        <div class="aigc-placeholder">作品 3</div>
-        <div class="aigc-overlay">
-          <span class="aigc-tool">即梦</span>
-        </div>
-      </div>
-      <div class="aigc-item aigc-item--wide">
-        <div class="aigc-placeholder">作品 4</div>
-        <div class="aigc-overlay">
-          <span class="aigc-tool">可灵</span>
-        </div>
-      </div>
-      <div class="aigc-item">
-        <div class="aigc-placeholder">作品 5</div>
-        <div class="aigc-overlay">
-          <span class="aigc-tool">Claude</span>
-        </div>
-      </div>
-      <div class="aigc-item">
-        <div class="aigc-placeholder">作品 6</div>
-        <div class="aigc-overlay">
-          <span class="aigc-tool">DALL·E</span>
-        </div>
+    <div
+      class="aigc-gallery aigc-gallery--disabled coming-soon-trigger coming-soon-trigger--panel"
+      data-tooltip="创作合集正在建设中"
+      aria-disabled="true"
+      tabindex="0"
+    >
+      <div class="aigc-coming-soon">
+        <p class="aigc-coming-soon-title">创作合集正在建设中</p>
+        <p class="aigc-coming-soon-desc">内容将陆续更新，敬请期待</p>
       </div>
     </div>
   </section>

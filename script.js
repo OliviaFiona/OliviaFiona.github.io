@@ -169,7 +169,7 @@ tabBtns.forEach(btn => {
 
 /* ─── Scroll reveal ─── */
 const revealEls = document.querySelectorAll(
-  '.edu-card, .intern-card, .proj-card, .award-card, .work-block, .aigc-item'
+  '.edu-card, .intern-card, .proj-card, .award-card, .work-block, .aigc-item, .aigc-coming-soon'
 );
 revealEls.forEach(el => el.classList.add('reveal'));
 

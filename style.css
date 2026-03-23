@@ -57,7 +57,7 @@ body {
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   padding: 0 2.5rem;
-  overflow: hidden;
+  overflow: visible;
   background:
     linear-gradient(
       120deg,
@@ -149,6 +149,105 @@ body {
   transition: color var(--transition);
 }
 .nav-links a:hover { color: var(--green-dk); }
+
+/* Creamy tooltip for "under construction" states */
+.coming-soon-trigger {
+  position: relative;
+}
+.coming-soon-trigger::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 12px);
+  transform: translate(-50%, 8px) scale(0.98);
+  padding: 0.45rem 0.8rem;
+  border-radius: 12px;
+  border: none;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 252, 242, 0.98) 0%,
+      rgba(255, 245, 223, 0.96) 52%,
+      rgba(241, 250, 236, 0.94) 100%
+    );
+  color: #6f5638;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  box-shadow:
+    0 0 0 1px rgba(214, 186, 138, 0.72),
+    0 9px 22px rgba(135, 106, 66, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.72);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 120;
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+}
+.coming-soon-trigger::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 5px);
+  width: 14px;
+  height: 9px;
+  background:
+    linear-gradient(
+      135deg,
+      transparent 43%,
+      rgba(214, 186, 138, 0.9) 44%,
+      rgba(214, 186, 138, 0.9) 56%,
+      transparent 57%
+    ) left top / 50% 100% no-repeat,
+    linear-gradient(
+      225deg,
+      transparent 43%,
+      rgba(214, 186, 138, 0.9) 44%,
+      rgba(214, 186, 138, 0.9) 56%,
+      transparent 57%
+    ) right top / 50% 100% no-repeat,
+    rgba(255, 249, 236, 0.98);
+  clip-path: polygon(50% 0, 0 100%, 100% 100%);
+  transform: translate(-50%, 6px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 121;
+  transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+}
+.coming-soon-trigger:hover::after,
+.coming-soon-trigger:hover::before,
+.coming-soon-trigger:focus-visible::after,
+.coming-soon-trigger:focus-visible::before {
+  opacity: 1;
+  visibility: visible;
+}
+.coming-soon-trigger:hover::after,
+.coming-soon-trigger:focus-visible::after {
+  transform: translate(-50%, 0) scale(1);
+}
+.coming-soon-trigger:hover::before,
+.coming-soon-trigger:focus-visible::before {
+  transform: translate(-50%, 0);
+}
+.coming-soon-trigger--panel::after {
+  top: 1rem;
+  left: auto;
+  right: 1rem;
+  transform: translateY(6px);
+}
+.coming-soon-trigger--panel::before {
+  display: none;
+}
+.coming-soon-trigger--panel:hover::after,
+.coming-soon-trigger--panel:focus-visible::after {
+  transform: translateY(0);
+}
+.coming-soon-trigger--panel:hover::before,
+.coming-soon-trigger--panel:focus-visible::before {
+  transform: none;
+}
 
 /* ══════════════════════════════ HERO ═════════════════════════════ */
 .hero {
@@ -1557,6 +1656,45 @@ section { padding: 8rem 3rem; }
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto;
   gap: 1rem;
+}
+.aigc-gallery--disabled {
+  grid-template-columns: 1fr;
+  gap: 0;
+  cursor: not-allowed;
+}
+.aigc-coming-soon {
+  min-height: 260px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(217, 190, 143, 0.64);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 252, 241, 0.98) 0%,
+      rgba(255, 244, 219, 0.94) 58%,
+      rgba(238, 248, 233, 0.9) 100%
+    );
+  box-shadow:
+    0 18px 40px rgba(146, 116, 75, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    inset 0 -10px 18px rgba(199, 172, 131, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.25rem 1.5rem;
+}
+.aigc-coming-soon-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+  font-weight: 600;
+  color: #6f5638;
+  letter-spacing: 0.03em;
+}
+.aigc-coming-soon-desc {
+  margin-top: 0.55rem;
+  font-size: 0.84rem;
+  color: #8a755c;
 }
 .aigc-item {
   position: relative; overflow: hidden;
