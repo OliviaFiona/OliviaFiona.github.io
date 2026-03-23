@@ -316,10 +316,25 @@ body {
   transform-origin: 50% 100%;
   animation: flowerBreeze 5.2s ease-in-out infinite;
 }
+.hero-br-safari-fallback {
+  display: none;
+  height: 50vh;
+  width: auto;
+  max-height: 50vh;
+  object-fit: contain;
+  object-position: right bottom;
+}
+.flower-br.safari-mov-enabled .hero-br-fallback {
+  display: none;
+}
+.flower-br.safari-mov-enabled .hero-br-safari-fallback {
+  display: block;
+}
 .flower-br.show-video .hero-br-video {
   display: block;
 }
-.flower-br.show-video .hero-br-fallback {
+.flower-br.show-video .hero-br-fallback,
+.flower-br.show-video .hero-br-safari-fallback {
   display: none;
 }
 @keyframes flowerBreeze {

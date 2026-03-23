@@ -11,12 +11,13 @@ window.addEventListener('scroll', () => {
   if (!videoLayer || !heroVideo) return;
 
   // Chromium often reports partial HEVC support but cannot render alpha MOV reliably.
-  // Use MOV only on Safari; all other browsers keep GIF fallback.
+  // Use MOV only on Safari; all other browsers keep static SVG fallback.
   const ua = navigator.userAgent;
   const isSafari =
     /Safari/.test(ua) &&
     !/Chrome|CriOS|Chromium|Edg|OPR|Firefox|FxiOS|SamsungBrowser/.test(ua);
   if (!isSafari) return;
+  videoLayer.classList.add('safari-mov-enabled');
 
   // Safari autoplay is sensitive to muted/inline flags at runtime.
   heroVideo.muted = true;
