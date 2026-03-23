@@ -311,6 +311,8 @@ body {
   max-height: 50vh;
   object-fit: contain;
   object-position: right bottom;
+  position: relative;
+  right: 14px;
   transform-origin: 50% 100%;
   animation: flowerBreeze 5.2s ease-in-out infinite;
 }
@@ -961,6 +963,7 @@ section { padding: 8rem 3rem; }
   border-left: 4px solid var(--green-line);
   border-radius: var(--radius-md);
   padding: 2.5rem 2.75rem;
+  overflow: hidden;
   box-shadow: var(--shadow-sm);
   opacity: 0;
   visibility: hidden;
@@ -1144,6 +1147,7 @@ section { padding: 8rem 3rem; }
 }
 .proj-card {
   position: relative;
+  overflow: hidden;
   background: var(--cream-card);
   border: 1px solid var(--cream-dark);
   border-left: 4px solid var(--green-md);
@@ -1162,6 +1166,31 @@ section { padding: 8rem 3rem; }
   z-index: 0;
 }
 .proj-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.proj-card > *:not(.proj-card-hover-art) {
+  position: relative;
+  z-index: 1;
+}
+.proj-card-hover-art {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  height: 33%;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  object-position: right bottom;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.92);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+.proj-card:hover .proj-card-hover-art {
+  opacity: 1;
+  transform: scale(1);
+}
 .proj-card-header {
   display: flex; justify-content: space-between; align-items: center;
   margin-bottom: 0.75rem;
