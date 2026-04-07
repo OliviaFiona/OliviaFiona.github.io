@@ -275,38 +275,50 @@ sections.forEach(s => sectionObserver.observe(s));
 
 /* ─── Web project preview fallback ─── */
 (function () {
-  const webEmbed = document.querySelector('.web-embed');
-  const fallback = document.querySelector('.web-embed-fallback');
-  const screen = document.querySelector('.browser-screen');
-  if (!webEmbed || !fallback || !screen) return;
+  const previewScreens = document.querySelectorAll('.browser-screen');
+  if (!previewScreens.length) return;
 
-  const showFallback = () => {
-    fallback.style.display = 'flex';
-  };
-  const hideFallback = () => {
-    fallback.style.display = 'none';
-  };
-  const fitWebPreview = () => {
-    const baseWidth = 1280;
-    const baseHeight = 720;
-    const availableWidth = screen.clientWidth;
-    const availableHeight = screen.clientHeight;
-    if (!availableWidth || !availableHeight) return;
+  const fitters = [];
 
-    // Use "cover" behavior to avoid left/right blank bars in preview.
-    const scale = Math.max(availableWidth / baseWidth, availableHeight / baseHeight);
-    const scaledWidth = baseWidth * scale;
-    const scaledHeight = baseHeight * scale;
-    const offsetX = (availableWidth - scaledWidth) / 2;
-    const offsetY = (availableHeight - scaledHeight) / 2;
+  previewScreens.forEach(screen => {
+    const webEmbed = screen.querySelector('.web-embed');
+    const fallback = screen.querySelector('.web-embed-fallback');
+    if (!webEmbed || !fallback) return;
 
-    webEmbed.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
-  };
+    const showFallback = () => {
+      fallback.style.display = 'flex';
+    };
+    const hideFallback = () => {
+      fallback.style.display = 'none';
+    };
+    const fitWebPreview = () => {
+      const baseWidth = 1280;
+      const baseHeight = 720;
+      const availableWidth = screen.clientWidth;
+      const availableHeight = screen.clientHeight;
+      if (!availableWidth || !availableHeight) return;
 
-  // Keep fallback visible by default; hide only when iframe loads successfully.
-  showFallback();
-  fitWebPreview();
-  window.addEventListener('resize', fitWebPreview);
-  webEmbed.addEventListener('load', hideFallback, { once: true });
-  webEmbed.addEventListener('error', showFallback);
+      // Use "cover" behavior to avoid left/right blank bars in preview.
+      const scale = Math.max(availableWidth / baseWidth, availableHeight / baseHeight);
+      const scaledWidth = baseWidth * scale;
+      const scaledHeight = baseHeight * scale;
+      const offsetX = (availableWidth - scaledWidth) / 2;
+      const offsetY = (availableHeight - scaledHeight) / 2;
+
+      webEmbed.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+    };
+
+    // Keep fallback visible by default; hide only when iframe loads successfully.
+    showFallback();
+    fitWebPreview();
+    webEmbed.addEventListener('load', hideFallback, { once: true });
+    webEmbed.addEventListener('error', showFallback);
+    fitters.push(fitWebPreview);
+  });
+
+  if (fitters.length) {
+    window.addEventListener('resize', () => {
+      fitters.forEach(fit => fit());
+    });
+  }
 })();
