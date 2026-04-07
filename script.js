@@ -279,6 +279,7 @@ sections.forEach(s => sectionObserver.observe(s));
   if (!previewScreens.length) return;
 
   const fitters = [];
+  const resizeObservers = [];
 
   previewScreens.forEach(screen => {
     const webEmbed = screen.querySelector('.web-embed');
@@ -311,9 +312,17 @@ sections.forEach(s => sectionObserver.observe(s));
     // Keep fallback visible by default; hide only when iframe loads successfully.
     showFallback();
     fitWebPreview();
+    window.addEventListener('load', fitWebPreview, { once: true });
     webEmbed.addEventListener('load', hideFallback, { once: true });
     webEmbed.addEventListener('error', showFallback);
     fitters.push(fitWebPreview);
+
+    // Re-fit when each preview container size changes (more reliable online).
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(() => fitWebPreview());
+      observer.observe(screen);
+      resizeObservers.push(observer);
+    }
   });
 
   if (fitters.length) {
