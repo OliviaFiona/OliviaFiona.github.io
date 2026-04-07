@@ -299,8 +299,8 @@ sections.forEach(s => sectionObserver.observe(s));
       const availableHeight = screen.clientHeight;
       if (!availableWidth || !availableHeight) return;
 
-      // Use "cover" behavior to avoid left/right blank bars in preview.
-      const scale = Math.max(availableWidth / baseWidth, availableHeight / baseHeight);
+      // Use "contain" behavior to ensure entire webpage is visible (may have blank bars).
+      const scale = Math.min(availableWidth / baseWidth, availableHeight / baseHeight);
       const scaledWidth = baseWidth * scale;
       const scaledHeight = baseHeight * scale;
       const offsetX = (availableWidth - scaledWidth) / 2;
